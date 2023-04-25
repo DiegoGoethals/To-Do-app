@@ -3,8 +3,12 @@
 /* base styles */
 * {
   margin: 0;
+}
+
+body {
+  background-color: rgb(48,48,48);
+  color: rgb(178,22,77);
   font-family: "Quicksand";
-  color: #333;
 }
 
 .content {
