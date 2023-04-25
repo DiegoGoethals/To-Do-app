@@ -6,28 +6,25 @@
   font-family: "Quicksand";
   color: #333;
 }
-.navbar {
-  padding: .5rem 0;
+
+.header {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
   border-bottom: 1px solid #f2f2f2;
 }
-.navbar h1 {
+
+.header h1 {
+  font-size: 4rem;
   color: #f1356d;
-  margin-left: 3rem;
 }
-.navbar .links {
-  margin-left: auto;
-  margin-right: 3rem;
-}
-.navbar a {
-  margin-left: 1rem;
+
+.header a {
   text-decoration: none;
 }
-.navbar a:hover {
-  color: #f1356d;
-}
+
 .content {
   width: 100%;
 }
