@@ -3,9 +3,12 @@ import useItems from './useItems';
 import Itemlist from './Itemlist';
 import addCategory from './firebase_handlers/addCategory';
 import Loader from './Loader';
+import { useState } from 'react';
 
-function Home() { 
-    const {items, loading, error} = useItems();
+function Home() {
+    const [itemType, setItemType] = useState('categories');
+    
+    const {items, loading, error} = useItems(itemType);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -18,7 +21,7 @@ function Home() {
         <div className="home">
             {error && <p>{error}</p>}
             {loading && <Loader/>}
-            {items && <Itemlist items={items} title="Categories"/>}
+            {items && <Itemlist items={items} title={itemType}/>}
             <form onSubmit={onSubmitHandler}>
                 <input placeholder='Give your new category name here' type='text' required></input>
                 <button className='addCategory'>Add a new category with to do's</button>

@@ -1,11 +1,11 @@
 import { getDocs, collection } from "@firebase/firestore"
 import { firestore } from "../firebase_setup/firebase"
  
-const getItems = () => {
-    const categories = collection(firestore, "categories") // Firebase creates this automatically
+const getItems = (collectionToSearch) => {
+    const items = collection(firestore, collectionToSearch) // Firebase creates this automatically
 
     try {
-        return getDocs(categories);
+        return getDocs(items);
     } catch(err) {
         console.log(err);
     }

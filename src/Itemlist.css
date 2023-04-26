@@ -3,6 +3,7 @@ h2 {
     font-weight: 500;
     padding: 2rem 0 .5rem 0;
     border-bottom: 0.1rem solid rgb(178,22,77);
+    text-transform: capitalize;
 }
 
 .items {
