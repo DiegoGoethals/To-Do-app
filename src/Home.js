@@ -5,16 +5,16 @@ import Itemlist from './Itemlist';
 function Home() { 
     const [categories, setCategories] = useState([
             {type: "Programming projects", items: [
-                {type: "Project 1", done: true}, {type: "Project 2", done: false}, {type: "Project 3", done: true}
+                "Project 1", "Project 2","Project 3"
             ]},
             {type: "Household chores", items: [
-                {type: "Clean the kitchen", done: false}, {type: "Do the laundry", done: false}, {type: "Take out the trash", done: true}
+                "Clean the kitchen", "Do the laundry", "Take out the trash"
             ]},
             {type: "Shopping list", items: [
-                {type: "Milk", done: false}, {type: "Bread", done: true}, {type: "Eggs", done: false}
+                "Milk", "Bread", "Eggs"
             ]},
             {type: "School assignments", items: [
-                {type: "Math homework", done: false}, {type: "English essay", done: false}, {type: "History project", done: false}
+                "Math homework", "English essay", "History project"
             ]},
         ]);
     
