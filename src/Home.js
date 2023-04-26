@@ -1,22 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Home.css';
 import Itemlist from './Itemlist';
+import getCategories from './firebase_handlers/getCategories';
 
 function Home() { 
-    const [categories, setCategories] = useState([
-            {type: "Programming projects", items: [
-                "Project 1", "Project 2","Project 3"
-            ]},
-            {type: "Household chores", items: [
-                "Clean the kitchen", "Do the laundry", "Take out the trash"
-            ]},
-            {type: "Shopping list", items: [
-                "Milk", "Bread", "Eggs"
-            ]},
-            {type: "School assignments", items: [
-                "Math homework", "English essay", "History project"
-            ]},
-        ]);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories().then((snapshot) => {
+            const categories = snapshot.docs.map((doc) => {
+                return {id: doc.id, ...doc.data()};
+            });
+            setCategories(categories);
+        });
+    });
     
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -28,7 +25,7 @@ function Home() {
     return (
         <div className="home">
             <Itemlist items={categories} title="Categories"/>
-            <form onSubmit={onSubmitHandler}>
+            <form>
                 <input placeholder='Give your new category name here' type='text' required></input>
                 <button className='addCategory'>Add a new category with to do's</button>
             </form>
