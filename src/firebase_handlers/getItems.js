@@ -1,7 +1,7 @@
 import { getDocs, collection } from "@firebase/firestore"
 import { firestore } from "../firebase_setup/firebase"
  
-const getCategories = () => {
+const getItems = () => {
     const categories = collection(firestore, "categories") // Firebase creates this automatically
 
     try {
@@ -11,4 +11,4 @@ const getCategories = () => {
     }
 }
  
-export default getCategories
+export default getItems;

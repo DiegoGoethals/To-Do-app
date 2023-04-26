@@ -5,7 +5,7 @@ import addCategory from './firebase_handlers/addCategory';
 import Loader from './Loader';
 
 function Home() { 
-    const {categories, loading, error} = useItems();
+    const {items, loading, error} = useItems();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -18,7 +18,7 @@ function Home() {
         <div className="home">
             {error && <p>{error}</p>}
             {loading && <Loader/>}
-            {categories && <Itemlist items={categories} title="Categories"/>}
+            {items && <Itemlist items={items} title="Categories"/>}
             <form onSubmit={onSubmitHandler}>
                 <input placeholder='Give your new category name here' type='text' required></input>
                 <button className='addCategory'>Add a new category with to do's</button>
