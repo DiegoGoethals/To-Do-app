@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Home.css';
-import Theme from "./Category";
+import Itemlist from './Itemlist';
 
 function Home() { 
     const [categories, setCategories] = useState([
@@ -16,11 +16,7 @@ function Home() {
 
     return (
         <div className="home">
-            <ul className="categories">
-                {categories.map((category, index) => (
-                    <Theme key={index} category={category}/>
-                ))}
-            </ul>
+            <Itemlist items={categories} title="Categories"/>
             <button className='addCategory' onClick={onClickHandler}>Add a new category with to do's</button>
         </div>
     );

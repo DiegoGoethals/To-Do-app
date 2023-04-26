@@ -6,16 +6,6 @@
     flex-direction: column;
 }
 
-.categories {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .addCategory {
     padding: 1rem;
     width: fit-content;
