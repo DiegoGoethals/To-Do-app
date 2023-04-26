@@ -7,7 +7,7 @@ const getCategories = () => {
     try {
         return getDocs(categories);
     } catch(err) {
-        console.log(err)
+        console.log(err);
     }
 }
  

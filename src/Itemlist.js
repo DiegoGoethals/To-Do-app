@@ -7,9 +7,9 @@ function Itemlist(props) {
     return (
         <div className="items">
             <h2>{title}</h2>
-            <ul className="categories">
-                {items.map((item) => (
-                    <Item key={item.id} item={item}/>
+            <ul className="list">
+                {items.map((item, index) => (
+                    <Item key={index} item={item}/>
                 ))}
             </ul>
         </div>

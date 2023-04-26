@@ -14,3 +14,7 @@ h2 {
     align-items: center;
     flex-direction: column;
 }
+
+.list {
+    padding: 0;
+}

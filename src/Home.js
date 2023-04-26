@@ -7,7 +7,9 @@ import Loader from './Loader';
 
 function Home() { 
     const [categories, setCategories] = useState(null);
+    const [change, setChange] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         getCategories().then((snapshot) => {
@@ -16,18 +18,29 @@ function Home() {
             });
             setCategories(categories);
             setLoading(false);
+            setError(null);
+        }).catch((err) => {
+            console.log(err);
+            setError("Something went wrong");
+            setLoading(false);
         });
-    });
+    }, [change]);
     
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const category = {type: document.querySelector('input').value, items: []};
         addCategory(category);
+        if (change) {
+            setChange(false);
+        } else {
+            setChange(true);
+        }
         document.querySelector("form").reset();
     };
 
     return (
         <div className="home">
+            {error && <p>{error}</p>}
             {loading && <Loader/>}
             {categories && <Itemlist items={categories} title="Categories"/>}
             <form onSubmit={onSubmitHandler}>
