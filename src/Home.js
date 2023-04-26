@@ -10,14 +10,20 @@ function Home() {
             "School assignments"
         ]);
     
-    const onClickHandler = () => {
-        setCategories([...categories, "New category"]);
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        const category = document.querySelector('input').value;
+        setCategories([...categories, category]);
+        document.querySelector("form").reset();
     };
 
     return (
         <div className="home">
             <Itemlist items={categories} title="Categories"/>
-            <button className='addCategory' onClick={onClickHandler}>Add a new category with to do's</button>
+            <form onSubmit={onSubmitHandler}>
+                <input placeholder='Give your new category name here' type='text' required></input>
+                <button className='addCategory'>Add a new category with to do's</button>
+            </form>
         </div>
     );
 }
