@@ -8,8 +8,8 @@ function Itemlist(props) {
         <div className="items">
             <h2>{title}</h2>
             <ul className="categories">
-                {items.map((item, index) => (
-                    <Item key={index} item={item}/>
+                {items.map((item) => (
+                    <Item key={item.id} item={item}/>
                 ))}
             </ul>
         </div>

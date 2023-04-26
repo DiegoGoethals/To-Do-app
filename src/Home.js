@@ -3,9 +3,11 @@ import './Home.css';
 import Itemlist from './Itemlist';
 import getCategories from './firebase_handlers/getCategories';
 import addCategory from './firebase_handlers/addCategory';
+import Loader from './Loader';
 
 function Home() { 
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getCategories().then((snapshot) => {
@@ -13,6 +15,7 @@ function Home() {
                 return {id: doc.id, ...doc.data()};
             });
             setCategories(categories);
+            setLoading(false);
         });
     });
     
@@ -25,7 +28,8 @@ function Home() {
 
     return (
         <div className="home">
-            <Itemlist items={categories} title="Categories"/>
+            {loading && <Loader/>}
+            {categories && <Itemlist items={categories} title="Categories"/>}
             <form onSubmit={onSubmitHandler}>
                 <input placeholder='Give your new category name here' type='text' required></input>
                 <button className='addCategory'>Add a new category with to do's</button>

@@ -8,7 +8,7 @@ function Item(props) {
     return (
         <li className="item">
             <div>
-                <h3>{item.type}</h3>
+                <h3>{item.name}</h3>
                 <p>{totalItems} to do lists in this category</p>
             </div>
         </li>
