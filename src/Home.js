@@ -4,15 +4,23 @@ import Itemlist from './Itemlist';
 
 function Home() { 
     const [categories, setCategories] = useState([
-            "Programming projects",
-            "Household chores",
-            "Shopping list",
-            "School assignments"
+            {type: "Programming projects", items: [
+                {type: "Project 1", done: true}, {type: "Project 2", done: false}, {type: "Project 3", done: true}
+            ]},
+            {type: "Household chores", items: [
+                {type: "Clean the kitchen", done: false}, {type: "Do the laundry", done: false}, {type: "Take out the trash", done: true}
+            ]},
+            {type: "Shopping list", items: [
+                {type: "Milk", done: false}, {type: "Bread", done: true}, {type: "Eggs", done: false}
+            ]},
+            {type: "School assignments", items: [
+                {type: "Math homework", done: false}, {type: "English essay", done: false}, {type: "History project", done: false}
+            ]},
         ]);
     
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        const category = document.querySelector('input').value;
+        const category = {type: document.querySelector('input').value, items: []};
         setCategories([...categories, category]);
         document.querySelector("form").reset();
     };

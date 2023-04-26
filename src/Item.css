@@ -5,8 +5,6 @@
     align-items: center;
     padding: 1rem;
     width: fit-content;
-    font-size: 2rem;
-    font-weight: 600;
     margin: 1rem auto;
     box-shadow: 0 0 0.2rem 0 rgb(178,22,77);
     border-radius: 0.5rem;
@@ -15,4 +13,21 @@
 
 .item:hover {
     box-shadow: 0 0 0.8rem 0 rgb(178,22,77);
+}
+
+.item div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 400;
 }
