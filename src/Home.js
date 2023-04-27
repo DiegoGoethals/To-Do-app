@@ -1,12 +1,12 @@
 import './Home.css';
-import useItems from './useItems';
-import Itemlist from './Itemlist';
-import addItem from './firebase_handlers/addItem';
+import useItems from './hooks/useItems';
+import addItem from './firebase/firebase_handlers/addItem';
 import Loader from './Loader';
 import { useState } from 'react';
+import CategoryList from './Categorylist';
 
-function Home() {
-    const [itemType, setItemType] = useState('categories');
+function Home(props) {
+    const itemType= props.itemType;
     const [newItem, setNewItem] = useState("");
     const [description, setDescription] = useState("");
     
@@ -18,8 +18,6 @@ function Home() {
         addItem(category, itemType).then(() => {
             setNewItem("");
             setDescription("");
-            setItemType("null");
-            setItemType("categories");
         });
     };
 
@@ -27,13 +25,15 @@ function Home() {
         <div className="home">
             {error && <p>{error}</p>}
             {loading && <Loader/>}
-            {items && <Itemlist items={items} title={itemType}/>}
+            {items && <CategoryList items={items} title={itemType}/>}
             <form onSubmit={onSubmitHandler}>
+                <label>Category name</label>
                 <input placeholder='Give your new category name here' type='text' 
                     value={newItem} onChange={(e) => {
                         setNewItem(e.target.value);
                     }} required>
                 </input>
+                <label>Category description</label>
                 <input placeholder='Give your description here' type='text' 
                     value={description} onChange={(e) => {
                         setDescription(e.target.value);

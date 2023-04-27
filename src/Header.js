@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
   return (
     <div className='header'>
-      <a href="/"><h1>To Do</h1></a>
+      <Link to="/"><h1>To Do</h1></Link>
     </div>
   );
 }

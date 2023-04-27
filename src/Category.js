@@ -1,7 +1,7 @@
-import './Item.css';
+import './Category.css';
 import { Link } from 'react-router-dom';
 
-function Item(props) {
+function Category(props) {
     const item = props.item;
     const description = item.description;
     //const totalItems = item.items.length;
@@ -19,4 +19,4 @@ function Item(props) {
     );
 }
 
-export default Item;
+export default Category;

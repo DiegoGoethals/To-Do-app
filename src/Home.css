@@ -17,6 +17,13 @@ form {
     padding: 1rem;
 }
 
+label {
+    font-size: 1.8rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: start;
+}
+
 input {
     background-color: transparent;
     color: rgb(178,22,77);
