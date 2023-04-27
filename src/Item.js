@@ -1,17 +1,21 @@
 import './Item.css';
+import { Link } from 'react-router-dom';
 
 function Item(props) {
     const item = props.item;
-    const totalItems = item.items.length;
+    const description = item.description;
+    //const totalItems = item.items.length;
     // const doneItems = item.items.filter(item => item.done).length;
 
     return (
-        <li className="item">
-            <div>
-                <h3>{item.name}</h3>
-                <p>{totalItems} to do lists in this category</p>
-            </div>
-        </li>
+        <Link to={item.name}>
+            <li className="item">
+                <div>
+                    <h3>{item.name}</h3>
+                    <p>{description}</p>
+                </div>
+            </li>
+        </Link>
     );
 }
 
