@@ -26,7 +26,7 @@ input {
 
 .addCategory {
     padding: 1rem;
-    width: fit-content;
+    width: 100%;
     font-size: 1.8rem;
     font-weight: 600;
     color: rgb(178,22,77);

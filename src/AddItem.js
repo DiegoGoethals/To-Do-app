@@ -21,6 +21,8 @@ function AddItem(props) {
         });
     };
 
+    let buttonText = props.itemType === 'to do lists' ? 'Add a new to do list' : 'Add a new category';
+
     return (
         <form onSubmit={onSubmitHandler}>
             <label>Category name</label>
@@ -35,7 +37,7 @@ function AddItem(props) {
                     setDescription(e.target.value);
                 }} required>
             </input>
-            <button className='addCategory'>Add a new category with to do's</button>
+            <button className='addCategory'>{buttonText}</button>
         </form>
     );
 }
