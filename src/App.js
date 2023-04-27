@@ -9,7 +9,8 @@ function App() {
         <Header/>
         <div className='content'>
           <Routes>
-            <Route path='/' element={<Home/>}/>
+            <Route exact path='/' element={<Home/>}/>
+            <Route path='/:category' element={<Home/>}/>
           </Routes>
         </div>
       </div>
