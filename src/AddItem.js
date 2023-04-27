@@ -1,9 +1,19 @@
 import './AddItem.css';
+import { useState } from 'react';
+import addItem from './firebase/firebase_handlers/addItem';
 
 function AddItem(props) {
-    const onSubmitHandler = props.onSubmitHandler;
-    const [newItem, setNewItem] = props.newItem;
-    const [description, setDescription] = props.description;
+    const [newItem, setNewItem] = useState("");
+    const [description, setDescription] = useState("");
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        const category = {name: newItem, description: description};
+        addItem(category, props.itemType).then(() => {
+            setNewItem("");
+            setDescription("");
+        });
+    };
 
     return (
         <form onSubmit={onSubmitHandler}>

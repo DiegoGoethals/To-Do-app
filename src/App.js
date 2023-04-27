@@ -12,6 +12,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home itemType={"categories"}/>}/>
             <Route exact path='/:category' element={<Lists itemType={"to do lists"}/>}/>
+            <Route path='*' element={<h1>This page doesn't exist (yet) please go back to the home screen by clicking the header</h1>}/>
           </Routes>
         </div>
       </div>

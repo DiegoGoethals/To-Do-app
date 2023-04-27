@@ -1,5 +1,5 @@
 import ListsItem from './ListsItem';
-import './ToDoList.css';
+import './Categorylist';
 
 function ToDoList(props) {
     const items = props.items;
