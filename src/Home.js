@@ -4,6 +4,7 @@ import addItem from './firebase/firebase_handlers/addItem';
 import Loader from './Loader';
 import { useState } from 'react';
 import CategoryList from './Categorylist';
+import AddItem from './AddItem';
 
 function Home(props) {
     const itemType= props.itemType;
@@ -26,21 +27,7 @@ function Home(props) {
             {error && <p>{error}</p>}
             {loading && <Loader/>}
             {items && <CategoryList items={items} title={itemType}/>}
-            <form onSubmit={onSubmitHandler}>
-                <label>Category name</label>
-                <input placeholder='Give your new category name here' type='text' 
-                    value={newItem} onChange={(e) => {
-                        setNewItem(e.target.value);
-                    }} required>
-                </input>
-                <label>Category description</label>
-                <input placeholder='Give your description here' type='text' 
-                    value={description} onChange={(e) => {
-                        setDescription(e.target.value);
-                    }} required>
-                </input>
-                <button className='addCategory'>Add a new category with to do's</button>
-            </form>
+            <AddItem onSubmitHandler={onSubmitHandler} newItem={[newItem, setNewItem]} description={[description, setDescription]}/>
         </div>
     );
 }
