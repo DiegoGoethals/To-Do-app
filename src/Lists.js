@@ -1,12 +1,12 @@
 import Loader from "./Loader";
-import useItems from "./hooks/useItems";
 import ToDoList from "./ToDoList";
 import { useParams } from 'react-router';
+import useFilteredLists from "./hooks/useFilteredLists";
 
 function Lists(props) {
     const itemType = props.itemType;
     const title = useParams().category;
-    const {items, loading, error} = useItems(itemType);
+    const {items, loading, error} = useFilteredLists(itemType, title);
 
     return (
         <div>
