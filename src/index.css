@@ -5,6 +5,11 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: rgb(178,22,77);
+}
+
 body {
   background-color: rgb(48,48,48);
   color: rgb(178,22,77);

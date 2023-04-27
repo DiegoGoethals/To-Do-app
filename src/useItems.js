@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import getItems from './firebase_handlers/getItems';
+import getItems from "./firebase_handlers/getItems";
+import { onSnapshot } from "@firebase/firestore";
 
 function useItems(itemType) {
     const [items, setItems] = useState(null);
@@ -7,17 +8,21 @@ function useItems(itemType) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        getItems(itemType).then((snapshot) => {
+        setLoading(true);
+        setError(null);
+        try {
+            onSnapshot(getItems(itemType), (snapshot) => {
             const items = snapshot.docs.map((doc) => {
                 return {id: doc.id, ...doc.data()};
             });
             setItems(items);
             setLoading(false);
             setError(null);
-        }).catch((err) => {
+        });
+        } catch(err) {
             setError(`An error occurred: ${err.message}`);
             setLoading(false);
-        });
+        }
     }, [itemType]);
 
     return {items, loading, error};
