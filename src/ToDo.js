@@ -11,6 +11,7 @@ function ToDo(props) {
         <li className="item">
             <div>
                 <h3>{done} {item.todo}</h3>
+                <i class="fa-solid fa-trash-can" style={{"color": "#7c7e83"}}></i>
             </div>
          </li>
     )

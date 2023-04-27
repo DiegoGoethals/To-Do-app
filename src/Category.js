@@ -11,6 +11,7 @@ function Category(props) {
                 <div>
                     <h3>{item.name}</h3>
                     <p>{description}</p>
+                    <i class="fa-solid fa-trash-can" style={{"color": "#7c7e83"}}></i>
                 </div>
             </li>
         </Link>
