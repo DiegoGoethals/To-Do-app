@@ -21,7 +21,7 @@ function ToDos(props) {
         <div className="items">
             {error && <p>{error}</p>}
             {loading && <Loader/>}
-            {items && <ToDosList items={realItems} title={title}/>}
+            {items && <ToDosList items={realItems} title={title} id={items[0].id}/>}
             <AddToDoField id={id}/>
         </div>
     );
