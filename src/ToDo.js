@@ -1,11 +1,15 @@
-function ToDo() {
+import './Category.css';
+
+function ToDo(props) {
+    const item = props.item;
+
     return (
         <li className="item">
             <div>
-                <h3>ToDo</h3>
-                <p>0 of 0 done</p>
+                <h3>{item.todo}</h3>
+                <h3>{item.done.toString()}</h3>
             </div>
-        </li>
+         </li>
     )
 }
 

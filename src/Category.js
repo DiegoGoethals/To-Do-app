@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 function Category(props) {
     const item = props.item;
     const description = item.description;
-    //const totalItems = item.items.length;
-    // const doneItems = item.items.filter(item => item.done).length;
 
     return (
         <Link to={item.name}>
