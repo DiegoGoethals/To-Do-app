@@ -1,14 +1,20 @@
 import './AddItem.css';
 import { useState } from 'react';
 import addItem from './firebase/firebase_handlers/addItem';
+import { useParams } from 'react-router-dom';
 
 function AddItem(props) {
     const [newItem, setNewItem] = useState("");
     const [description, setDescription] = useState("");
+    const route = useParams().category;
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        const category = {name: newItem, description: description};
+        let category = {name: newItem, description: description};
+        if (props.itemType === 'to do lists') {
+            category.items = [];
+            category.category = route;
+        }
         addItem(category, props.itemType).then(() => {
             setNewItem("");
             setDescription("");

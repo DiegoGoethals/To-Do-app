@@ -11,6 +11,7 @@ function ListsItem(props) {
             <li className="item">
                 <div>
                     <h3>{item.name}</h3>
+                    <p>{item.description}</p>
                     <p>{doneItems} of {totalItems} done</p>
                 </div>
             </li>
