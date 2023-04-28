@@ -2,6 +2,7 @@ import './AddItem.css';
 import { useState } from 'react';
 import addItem from './firebase/firebase_handlers/databaseLogic/addHandlers/addItem';
 import { useParams } from 'react-router-dom';
+import { auth } from './firebase/firebase_setup/firebase';
 
 function AddItem(props) {
     const [newItem, setNewItem] = useState("");
@@ -10,7 +11,7 @@ function AddItem(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        let category = {name: newItem, description: description};
+        let category = {name: newItem, description: description, user: auth.currentUser.uid};
         if (props.itemType === 'to do lists') {
             category.items = [];
             category.category = route;
