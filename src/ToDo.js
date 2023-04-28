@@ -1,5 +1,6 @@
 import './Category.css';
 import deleteToDo from './firebase/firebase_handlers/deleteHandlers/deleteToDo';
+import toDoDoneChange from './firebase/firebase_handlers/toDoDoneChange';
 
 function ToDo(props) {
     const item = props.item;
@@ -13,11 +14,11 @@ function ToDo(props) {
     }
 
     const changeDone = () => {
-        
+        toDoDoneChange(item, props.id);
     }
 
     return (
-        <li className="item">
+        <li className="item" onClick={changeDone}>
             <div>
                 <h3>{done} {item.todo}</h3>
                 <i className="fa-solid fa-trash-can" style={{"color": "#7c7e83"}} onClick={onClickHandler}></i>

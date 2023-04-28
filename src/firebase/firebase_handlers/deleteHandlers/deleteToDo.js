@@ -1,5 +1,5 @@
 import { updateDoc, getDoc, doc } from "@firebase/firestore"
-import { firestore } from "../firebase_setup/firebase"
+import { firestore } from "../../firebase_setup/firebase"
 
 function deleteToDo(todo, id) {
     const docRef = doc(firestore, "to do lists", id);
