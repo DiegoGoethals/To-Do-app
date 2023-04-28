@@ -2,15 +2,21 @@ import './AddItem.css';
 import './Users.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import login from './firebase/firebase_handlers/userLogic/login';
 
 function LogIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        login(email, password);
+    };
+
     return (
         <div className="login">
             <h1>Log In</h1>
-            <form>
+            <form onSubmit={onSubmitHandler}>
                 <label>Email</label>
                 <input type="email" id="email" required value={email} onChange={e => {
                     setEmail(e.target.value);
