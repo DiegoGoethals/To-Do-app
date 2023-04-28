@@ -24,7 +24,7 @@ input {
     outline: none;
 }
 
-.addCategory {
+button {
     padding: 1rem;
     width: 100%;
     font-size: 1.8rem;
@@ -36,6 +36,6 @@ input {
     cursor: pointer;
 }
 
-.addCategory:hover {
+button:hover {
     box-shadow: 0 0 0.8rem 0 rgb(178,22,77);
 }
