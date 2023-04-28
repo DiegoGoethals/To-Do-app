@@ -6,6 +6,7 @@ function Header(props) {
   const onClickHandler = () => {
     auth.signOut().then(() => {
       setUserLoaded(false);
+      window.location.href = "/";
     }).catch((error) => {
       console.log(error.message);
     });

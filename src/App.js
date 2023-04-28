@@ -12,7 +12,6 @@ function App() {
   const [userLoaded, setUserLoaded] = useState(false);
 
   useEffect(() => {
-    console.log("Header mounted", userLoaded);
     auth.onAuthStateChanged( _ => {
       setUserLoaded(true);
     });
