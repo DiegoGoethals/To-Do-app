@@ -4,18 +4,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import login from './firebase/firebase_handlers/userLogic/login';
 
-function LogIn(props) {
+function LogIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
         login(email, password).then(() => {
-            setUserLoaded(false);
+            window.location.href = '/';
         });
     };
-
-    const setUserLoaded = props.setUserLoaded;
 
     return (
         <div className="login">

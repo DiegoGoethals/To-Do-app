@@ -29,7 +29,7 @@ function App() {
         <div className='content'>
           <Routes>
             <Route exact path='/' element={<Home itemType={"categories"}/>}/>
-            <Route exact path='/login' element={<LogIn setUserLoaded={handleAuthChange}/>}/>
+            <Route exact path='/login' element={<LogIn/>}/>
             <Route exact path='/signup' element={<Signup/>}/>
             <Route exact path='/:category' element={<Lists itemType={"to do lists"}/>}/>
             <Route exact path='/:category/:list' element={<ToDos itemType={"to do lists"}/>}/>
