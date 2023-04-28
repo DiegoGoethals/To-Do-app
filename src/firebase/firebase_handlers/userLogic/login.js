@@ -1,12 +1,12 @@
 import {auth} from '../../firebase_setup/firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-function login(email, password) {
-    signInWithEmailAndPassword(auth, email, password).then((_) => {
-        console.log("User logged in");
-    }).catch((error) => {
+async function login(email, password) {
+    try {
+        return await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
         console.log(error.message);
-    });
+    }
 }
 
 export default login;
