@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getItems from "../firebase/firebase_handlers/getItems";
+import getItems from "../firebase/firebase_handlers/databaseLogic/getItems";
 import { onSnapshot } from "@firebase/firestore";
 
 function useFilteredLists(itemType, category) {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import './Category.css';
-import deleteList from "./firebase/firebase_handlers/deleteHandlers/deleteList";
+import deleteList from "./firebase/firebase_handlers/databaseLogic/deleteHandlers/deleteList";
 
 function ListsItem(props) {
     const item = props.item;

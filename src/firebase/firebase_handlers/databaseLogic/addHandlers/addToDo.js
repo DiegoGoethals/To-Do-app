@@ -1,11 +1,12 @@
 import { updateDoc, getDoc, doc } from "@firebase/firestore"
-import { firestore } from "../../firebase_setup/firebase"
+import { firestore } from "../../../firebase_setup/firebase"
 
-function deleteToDo(todo, id) {
+function addToDo(item, id) {
     const docRef = doc(firestore, "to do lists", id);
     try {
         return getDoc(docRef).then(doc => {
-            const items = doc.data().items.filter((i) => i.todo !== todo);
+            const items = doc.data().items;
+            items.push(item);
             updateDoc(docRef, {
                 items: items
             });
@@ -15,4 +16,4 @@ function deleteToDo(todo, id) {
     }
 }
 
-export default deleteToDo;
+export default addToDo;

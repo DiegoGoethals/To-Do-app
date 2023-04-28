@@ -1,6 +1,6 @@
 import './Category.css';
-import deleteToDo from './firebase/firebase_handlers/deleteHandlers/deleteToDo';
-import toDoDoneChange from './firebase/firebase_handlers/toDoDoneChange';
+import deleteToDo from './firebase/firebase_handlers/databaseLogic/deleteHandlers/deleteToDo';
+import toDoDoneChange from './firebase/firebase_handlers/databaseLogic/toDoDoneChange';
 
 function ToDo(props) {
     const item = props.item;
@@ -21,7 +21,12 @@ function ToDo(props) {
         <li className="item" onClick={changeDone}>
             <div>
                 <h3>{done} {item.todo}</h3>
-                <i className="fa-solid fa-trash-can" style={{"color": "#7c7e83"}} onClick={onClickHandler}></i>
+                <i className="fa-solid fa-trash-can" style={{"color": "#7c7e83"}} onClick={ (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        onClickHandler();
+                    }
+                }></i>
             </div>
          </li>
     )

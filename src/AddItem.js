@@ -1,6 +1,6 @@
 import './AddItem.css';
 import { useState } from 'react';
-import addItem from './firebase/firebase_handlers/addHandlers/addItem';
+import addItem from './firebase/firebase_handlers/databaseLogic/addHandlers/addItem';
 import { useParams } from 'react-router-dom';
 
 function AddItem(props) {
