@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getItems from "../firebase/firebase_handlers/databaseLogic/getItems";
 import { onSnapshot } from "@firebase/firestore";
+import { auth } from "../firebase/firebase_setup/firebase";
 
 function useItems(itemType) {
     const [items, setItems] = useState(null);
@@ -14,6 +15,8 @@ function useItems(itemType) {
             onSnapshot(getItems(itemType), (snapshot) => {
             const items = snapshot.docs.map((doc) => {
                 return {id: doc.id, ...doc.data()};
+            }).filter((item) => {
+                return item.user === auth.currentUser.uid;
             });
             setItems(items);
             setLoading(false);
