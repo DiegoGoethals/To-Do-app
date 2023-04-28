@@ -16,6 +16,10 @@ function useItems(itemType) {
             const items = snapshot.docs.map((doc) => {
                 return {id: doc.id, ...doc.data()};
             }).filter((item) => {
+                if (auth.currentUser === null) {
+                    setLoading(false);
+                    return false;
+                }
                 return item.user === auth.currentUser.uid;
             });
             setItems(items);

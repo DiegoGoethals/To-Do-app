@@ -15,7 +15,13 @@ function useFilteredLists(itemType, category) {
             onSnapshot(getItems(itemType), (snapshot) => {
             const items = snapshot.docs.map((doc) => {
                 return {id: doc.id, ...doc.data()};
-            }).filter((item) => item.category === category && item.user === auth.currentUser.uid);
+            }).filter((item) => {
+                if (auth.currentUser === null) {
+                    setLoading(false);
+                    return false;
+                }
+                return item.category === category && item.user === auth.currentUser.uid;
+            });
             setItems(items);
             setLoading(false);
             setError(null);

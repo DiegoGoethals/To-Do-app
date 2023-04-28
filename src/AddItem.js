@@ -11,15 +11,19 @@ function AddItem(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        let category = {name: newItem, description: description, user: auth.currentUser.uid};
-        if (props.itemType === 'to do lists') {
-            category.items = [];
-            category.category = route;
+        if (auth.currentUser) {
+            let category = {name: newItem, description: description, user: auth.currentUser.uid};
+            if (props.itemType === 'to do lists') {
+                category.items = [];
+                category.category = route;
+            }
+            addItem(category, props.itemType).then(() => {
+                setNewItem("");
+                setDescription("");
+            });
+        } else {
+            alert("You need to be logged in to add a new category");
         }
-        addItem(category, props.itemType).then(() => {
-            setNewItem("");
-            setDescription("");
-        });
     };
 
     let buttonText = props.itemType === 'to do lists' ? 'Add a new to do list' : 'Add a new category';

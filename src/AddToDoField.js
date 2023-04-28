@@ -1,15 +1,20 @@
 import { useState } from "react";
 import addToDo from "./firebase/firebase_handlers/databaseLogic/addHandlers/addToDo";
+import { auth } from "./firebase/firebase_setup/firebase";
 
 function AddToDoField(props) {
     const [newItem, setNewItem] = useState("");
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        const toDo = {todo: newItem, done: false};
-        addToDo(toDo, props.id).then(() => {
-            setNewItem("");
-        });
+        if (auth.currentUser) {
+            const toDo = {todo: newItem, done: false};
+            addToDo(toDo, props.id).then(() => {
+                setNewItem("");
+            });
+        } else {
+            alert("You need to be logged in to add a new to do");
+        }
     };
 
     return (

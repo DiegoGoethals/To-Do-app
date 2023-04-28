@@ -15,7 +15,13 @@ function useToDos(itemType, category, title) {
             onSnapshot(getItems(itemType), (snapshot) => {
             const items = snapshot.docs.map((doc) => {
                 return {id: doc.id, ...doc.data()};
-            }).filter((item) => item.category === category && item.name === title && auth.currentUser.uid === item.user);
+            }).filter((item) => {
+                if (auth.currentUser === null) {
+                    setLoading(false);
+                    return false;
+                }
+                return item.category === category && item.name === title && auth.currentUser.uid === item.user;
+            });
             setItems(items);
             setLoading(false);
             setError(null);
