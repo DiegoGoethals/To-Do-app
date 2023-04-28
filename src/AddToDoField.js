@@ -1,5 +1,5 @@
 import { useState } from "react";
-import addToDo from "./firebase/firebase_handlers/addToDo";
+import addToDo from "./firebase/firebase_handlers/addHandlers/addToDo";
 
 function AddToDoField(props) {
     const [newItem, setNewItem] = useState("");

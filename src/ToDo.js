@@ -1,5 +1,5 @@
 import './Category.css';
-import deleteToDo from './firebase/firebase_handlers/deleteToDo';
+import deleteToDo from './firebase/firebase_handlers/deleteHandlers/deleteToDo';
 
 function ToDo(props) {
     const item = props.item;
@@ -10,6 +10,10 @@ function ToDo(props) {
 
     const onClickHandler = () => {
         deleteToDo(item.todo, props.id);
+    }
+
+    const changeDone = () => {
+        
     }
 
     return (

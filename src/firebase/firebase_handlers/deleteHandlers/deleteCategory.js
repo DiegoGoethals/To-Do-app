@@ -1,5 +1,5 @@
 import { deleteDoc, doc, getDocs, collection } from "@firebase/firestore"
-import { firestore } from "../firebase_setup/firebase"
+import { firestore } from "../../firebase_setup/firebase"
 
 function deleteCategory(id, name) {
     const colRef = collection(firestore, "to do lists");

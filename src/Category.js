@@ -1,6 +1,6 @@
 import './Category.css';
 import { Link } from 'react-router-dom';
-import deleteCategory from './firebase/firebase_handlers/deleteCategory';
+import deleteCategory from './firebase/firebase_handlers/deleteHandlers/deleteCategory';
 
 function Category(props) {
     const item = props.item;
