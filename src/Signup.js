@@ -1,16 +1,21 @@
 import './AddItem.css';
 import './Users.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import signup from './firebase/firebase_handlers/userLogic/signup';
 
-function LogIn() {
+function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        signup(email, password);
+    };
+
     return (
-        <div className="login">
-            <h1>Log In</h1>
-            <form>
+        <div className="signup">
+            <h1>Sign up</h1>
+            <form onSubmit={onSubmitHandler}>
                 <label>Email</label>
                 <input type="email" id="email" required value={email} onChange={e => {
                     setEmail(e.target.value);
@@ -19,14 +24,10 @@ function LogIn() {
                 <input type="password" id="password" required value={password} onChange={e => {
                     setPassword(e.target.value);
                 }}/>
-                <button type="submit">Log In</button>
+                <button type="submit">Sign up</button>
             </form>
-            <Link to="/signup">
-                <p>Don't have an account yet?<br/> Click here to sign up and keep track of your own to do's wherever and whenever you want</p>
-                <button>Sign up</button>
-            </Link>
         </div>
     );
 }
 
-export default LogIn;
+export default Signup;
