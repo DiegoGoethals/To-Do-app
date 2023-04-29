@@ -3,12 +3,16 @@
 /* base styles */
 * {
   margin: 0;
-  word-break: break-all;
 }
 
 a {
   text-decoration: none;
   color: rgb(178,22,77);
+}
+
+p {
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 body {
