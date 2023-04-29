@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+:root {
+  --color: rgb(178,22,77);
+  --bg-color: rgb(48,48,48);
+}
+
 /* base styles */
 * {
   margin: 0;
+  color: var(--color);
 }
 
 a {
   text-decoration: none;
-  color: rgb(178,22,77);
 }
 
 p {
@@ -16,8 +21,7 @@ p {
 }
 
 body {
-  background-color: rgb(48,48,48);
-  color: rgb(178,22,77);
+  background-color: var(--bg-color);
   font-family: "Quicksand";
 }
 

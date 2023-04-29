@@ -2,7 +2,7 @@ h2 {
     font-size: 3rem;
     font-weight: 500;
     padding: 2rem 0 .5rem 0;
-    border-bottom: 0.1rem solid rgb(178,22,77);
+    border-bottom: 0.1rem solid var(--color);
     text-transform: capitalize;
 }
 

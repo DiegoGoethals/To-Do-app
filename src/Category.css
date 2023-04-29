@@ -6,13 +6,13 @@
     padding: 1rem;
     width: fit-content;
     margin: 1rem auto;
-    box-shadow: 0 0 0.2rem 0 rgb(178,22,77);
+    box-shadow: 0 0 0.2rem 0 var(--color);
     border-radius: 0.5rem;
     cursor: pointer;
 }
 
 .item:hover {
-    box-shadow: 0 0 0.8rem 0 rgb(178,22,77);
+    box-shadow: 0 0 0.8rem 0 var(--color);
 }
 
 .item div {

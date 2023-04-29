@@ -18,7 +18,7 @@ label {
 
 input {
     background-color: transparent;
-    color: rgb(178,22,77);
+    color: var(--color);
     width: 100%;
     font-size: 2rem;
     outline: none;
@@ -29,13 +29,13 @@ button {
     width: 100%;
     font-size: 1.8rem;
     font-weight: 600;
-    color: rgb(178,22,77);
-    box-shadow: 0 0 0.2rem 0 rgb(178,22,77);
+    color: var(--color);
+    box-shadow: 0 0 0.2rem 0 var(--color);
     border-radius: 0.5rem;
     background-color: transparent;
     cursor: pointer;
 }
 
 button:hover {
-    box-shadow: 0 0 0.8rem 0 rgb(178,22,77);
+    box-shadow: 0 0 0.8rem 0 var(--color);
 }
