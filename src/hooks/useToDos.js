@@ -1,36 +1,34 @@
-import { useEffect, useState } from "react";
-import getItems from "../firebase/firebase_handlers/databaseLogic/getItems";
-import { onSnapshot } from "@firebase/firestore";
-import { auth } from "../firebase/firebase_setup/firebase";
+import { useEffect, useState, useMemo } from "react";
+import { doc, onSnapshot } from "@firebase/firestore";
+import { auth, firestore } from "../firebase/firebase_setup/firebase";
 
-function useToDos(itemType, category, title) {
+function useToDos(id) {
     const [items, setItems] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const docRef = useMemo(() => doc(firestore, "to do lists", id), [id]);
 
     useEffect(() => {
         setLoading(true);
         setError(null);
         try {
-            onSnapshot(getItems(itemType), (snapshot) => {
-            const items = snapshot.docs.map((doc) => {
-                return {id: doc.id, ...doc.data()};
-            }).filter((item) => {
-                if (auth.currentUser === null) {
+            onSnapshot(docRef, (snapshot) => {
+                if (auth.currentUser.uid !== snapshot.data().user) {
+                    setError("You do not have permission to view this list.");
                     setLoading(false);
                     return false;
                 }
-                return item.category === category && item.name === title && auth.currentUser.uid === item.user;
+                const items = snapshot.data().items;
+                setItems(items);
+                setLoading(false);
+                setError(null);
             });
-            setItems(items);
-            setLoading(false);
-            setError(null);
-        });
         } catch(err) {
             setError(`An error occurred: ${err.message}`);
             setLoading(false);
         }
-    }, [itemType, category, title]);
+    }, [docRef]);
 
     return {items, loading, error};
 }

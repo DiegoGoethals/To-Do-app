@@ -31,7 +31,7 @@ function App() {
             <Route exact path='/login' element={<LogIn/>}/>
             <Route exact path='/signup' element={<Signup/>}/>
             <Route exact path='/:category' element={<Lists itemType={"to do lists"}/>}/>
-            <Route exact path='/:category/:list' element={<ToDos itemType={"to do lists"}/>}/>
+            <Route exact path='/:category/:list' element={<ToDos/>}/>
             <Route path='*' element={<h1>This page doesn't exist (yet) please go back to the home screen by clicking the header</h1>}/>
           </Routes>
         </div>

@@ -12,7 +12,9 @@ function ListsItem(props) {
     }
 
     return (
-        <Link to={item.name}>
+        <Link to={item.name} onClick={() => {
+            localStorage.setItem("list", item.id);
+        }}>
             <li className="item">
                 <div>
                     <h3>{item.name}</h3>

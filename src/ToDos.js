@@ -5,23 +5,16 @@ import ToDosList from './ToDosList';
 import useToDos from './hooks/useToDos';
 import AddToDoField from './AddToDoField';
 
-function ToDos(props) {
-    const itemType = props.itemType;
+function ToDos() {
     const title = useParams().list;
-    const category = useParams().category;
-    const {items, loading, error} = useToDos(itemType, category, title);
-    let realItems = [];
-    let id = "";
-    if (items) {
-        realItems = items[0].items;
-        id = items[0].id;
-    }
+    const id = localStorage.getItem("list");
+    const {items, loading, error} = useToDos(id);
 
     return (
         <div className="items">
             {error && <p>{error}</p>}
             {loading && <Loader/>}
-            {items && <ToDosList items={realItems} title={title} id={items[0].id}/>}
+            {items && <ToDosList items={items} title={title} id={id}/>}
             <AddToDoField id={id}/>
         </div>
     );
