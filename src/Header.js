@@ -13,7 +13,7 @@ function Header(props) {
     });
   };
 
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
   const [symbol, setSymbol] = useState(
     theme === 'light' ? (
       <i className="fa-solid fa-moon" style={{ color: '#303030' }}></i>
