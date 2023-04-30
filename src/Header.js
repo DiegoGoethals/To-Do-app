@@ -33,7 +33,6 @@ function Header(props) {
   };
   
   useEffect(() => {
-    console.log(theme);
     localStorage.setItem('theme', theme);
     const root = document.querySelector(':root');
     if (root) {

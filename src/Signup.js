@@ -9,7 +9,11 @@ function Signup() {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        signup(email, password);
+        signup(email, password).then((res) => {
+            window.location.href = "/";
+        }).catch((err) => {
+            console.log(err);
+        });
     };
 
     return (
