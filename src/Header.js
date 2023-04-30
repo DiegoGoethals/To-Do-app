@@ -38,8 +38,8 @@ function Header(props) {
     if (root) {
       if (theme === 'light') {
         setSymbol(<i className="fa-solid fa-moon" style={{ color: '#303030' }}></i>);
-        root.style.setProperty('--bg-color', 'whitesmoke');
-        root.style.setProperty('--color', 'black');
+        root.style.setProperty('--bg-color', 'rgb(240,240,240)');
+        root.style.setProperty('--color', 'rgb(221,102,142)');
       } else {
         setSymbol(<i className="fa-solid fa-sun" style={{ color: '#e1ff00' }}></i>);
         root.style.setProperty('--bg-color', 'rgb(48,48,48)');
