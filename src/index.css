@@ -15,11 +15,6 @@ a {
   text-decoration: none;
 }
 
-p {
-  word-break: break-all;
-  white-space: pre-wrap;
-}
-
 body {
   background-color: var(--bg-color);
   font-family: "Quicksand";
