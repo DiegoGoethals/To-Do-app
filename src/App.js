@@ -1,8 +1,8 @@
 import Home from './Home';
-import Header from './Header';
+import RootLayout from './layouts/RootLayout';
 import Lists from './Lists';
 import ToDos from './ToDos';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { auth } from './firebase/firebase_setup/firebase';
 import LogIn from './LogIn';
@@ -21,22 +21,21 @@ function App() {
     setUserLoaded(false);
   };
 
+  const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout userLoaded={userLoaded} setUserLoaded={handleAuthChange} />}>
+      <Route index element={<Home itemType={"categories"}/>} />
+      <Route path="login" element={<LogIn />} />
+      <Route path="signup" element={<Signup />} />
+      <Route path=":category" element={<Lists itemType={"to do lists"}/>}/>
+      <Route path=":category/:list" element={<ToDos />} />
+      <Route path='*' element={<h1>This page doesn't exist (yet) please go back to the home screen by clicking the header</h1>}/>
+    </Route>
+  )
+)
+
   return (
-    <Router>
-      <div className="App">
-        <Header userLoaded={userLoaded} setUserLoaded={handleAuthChange}/>
-        <div className='content'>
-          <Routes>
-            <Route exact path='/' element={<Home itemType={"categories"}/>}/>
-            <Route exact path='/login' element={<LogIn/>}/>
-            <Route exact path='/signup' element={<Signup/>}/>
-            <Route exact path='/:category' element={<Lists itemType={"to do lists"}/>}/>
-            <Route exact path='/:category/:list' element={<ToDos/>}/>
-            <Route path='*' element={<h1>This page doesn't exist (yet) please go back to the home screen by clicking the header</h1>}/>
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <RouterProvider router={router}/>
   );
 }
 

@@ -1,5 +1,5 @@
 import './Category.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import deleteCategory from './firebase/firebase_handlers/databaseLogic/deleteHandlers/deleteCategory';
 
 function Category(props) {
@@ -11,7 +11,7 @@ function Category(props) {
     };
 
     return (
-        <Link to={item.name}>
+        <NavLink to={item.name}>
             <li className="item">
                 <div>
                     <h3>{item.name}</h3>
@@ -23,7 +23,7 @@ function Category(props) {
                     }}></i>
                 </div>
             </li>
-        </Link>
+        </NavLink>
     );
 }
 

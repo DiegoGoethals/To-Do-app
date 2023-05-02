@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import './Header.css';
 import { useEffect, useState } from 'react';
-import { auth } from './firebase/firebase_setup/firebase';
+import { auth } from '../firebase/firebase_setup/firebase';
 
-function Header(props) {
+function RootLayout(props) {
   const onClickHandler = () => {
     auth.signOut().then(() => {
       setUserLoaded(false);
@@ -52,14 +52,19 @@ function Header(props) {
   const setUserLoaded = props.setUserLoaded;
 
   return (
-    <div className='header'>
-      <Link to="/"><p>Home</p></Link>
-      {!userLoaded && <p>Loading...</p>}
-      {userLoaded && !auth.currentUser && <Link to="/login"><p>Log in</p></Link>}
-      {userLoaded && auth.currentUser && <p onClick={onClickHandler} style={{"cursor": "pointer"}}>Log out</p>}
-      <p onClick={toggleTheme}>{symbol}</p>
+    <div className = "root">
+      <div className='header'>
+        <NavLink to="/"><p>Home</p></NavLink>
+        {!userLoaded && <p>Loading...</p>}
+        {userLoaded && !auth.currentUser && <NavLink to="login"><p>Log in</p></NavLink>}
+        {userLoaded && auth.currentUser && <p onClick={onClickHandler} style={{"cursor": "pointer"}}>Log out</p>}
+        <p onClick={toggleTheme}>{symbol}</p>
+      </div>
+      <main>
+        <Outlet/>
+      </main>
     </div>
   );
 }
 
-export default Header;
+export default RootLayout;
