@@ -1,0 +1,20 @@
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 1.25rem auto;
+  }
+  .breadcrumbs > *{
+    display: inline-block;
+    margin-right: .8rem;
+  }
+  .breadcrumbs .crumb:after {
+    content: '>';
+    margin-left: .8rem;
+  }
+  .breadcrumbs .crumb:last-child:after {
+    display: none;
+  }
+  .breadcrumbs .crumb a {
+    text-decoration: underline;
+  }

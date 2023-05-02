@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import './Header.css';
 import { useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase_setup/firebase';
+import Breadcrumbs from '../Components/Breadcrumbs';
 
 function RootLayout(props) {
   const onClickHandler = () => {
@@ -60,6 +61,7 @@ function RootLayout(props) {
         {userLoaded && auth.currentUser && <p onClick={onClickHandler} style={{"cursor": "pointer"}}>Log out</p>}
         <p onClick={toggleTheme}>{symbol}</p>
       </div>
+      <Breadcrumbs/>
       <main>
         <Outlet/>
       </main>
