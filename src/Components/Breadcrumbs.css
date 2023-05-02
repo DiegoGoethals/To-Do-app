@@ -18,3 +18,7 @@
   .breadcrumbs .crumb a {
     text-decoration: underline;
   }
+
+  .crumb {
+    font-size: 1.2rem;
+  }
